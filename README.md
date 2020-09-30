@@ -2,8 +2,8 @@
 # Nouveau reposirtory pour des tests
 # Nouveau repository pour utiliser d'autres fichiers (modules separes)  
 
-# https://www.terraform.io/docs/modules/index.html
-# provider.tf
+https://www.terraform.io/docs/modules/index.html
+provider.tf
 regroupe les informations du fournisseur cloud
 compute.tf
 regroupe les informations d'instance
