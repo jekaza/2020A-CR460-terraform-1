@@ -144,7 +144,7 @@ resource "google_compute_instance_group_manager" "cr460-workload-gm" {
   zone               = "us-east1-c"
 
 }
-
+/*
 resource "google_compute_autoscaler" "cr460-autoscaler" {
   name   = "cr460-autoscaler"
   zone   = "us-east1-c"
@@ -160,7 +160,7 @@ resource "google_compute_autoscaler" "cr460-autoscaler" {
     }
   }
 }
-/*resource "google_compute_autoscaler" "cr460-autoscaler" {
+resource "google_compute_autoscaler" "cr460-autoscaler" {
   name   = "cr460-autoscaler"
   zone   = "us-east1-c"
   target = google_compute_instance_group_manager.cr460-workload-gm.self_link
@@ -172,3 +172,4 @@ resource "google_compute_autoscaler" "cr460-autoscaler" {
       target = 0.5
     }
   }
+/*
