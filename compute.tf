@@ -6,12 +6,12 @@ resource "google_compute_instance" "jump" {
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
 
   network_interface {
-    subnetwork = google_compute_subnetwork.mtl-dmz.name
+    subnetwork = google_compute_subnetwork.prod-dmz.name
     access_config {
 
     }
@@ -30,12 +30,12 @@ resource "google_compute_instance" "vault" {
 
   boot_disk {
     initialize_params {
-      image = "fedora-coreos-cloud/fedora-coreos-stable"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
 
   network_interface {
-    subnetwork = google_compute_subnetwork.mtl-dmz.name
+    subnetwork = google_compute_subnetwork.prod-dmz.name
     access_config {
 
     }
@@ -51,11 +51,11 @@ resource "google_compute_instance" "master" {
 
   boot_disk {
     initialize_params {
-      image = "fedora-coreos-cloud/fedora-coreos-stable"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
   network_interface {
-    subnetwork = google_compute_subnetwork.mtl-workload.name
+    subnetwork = google_compute_subnetwork.prod-workload.name
 
   }
 }
@@ -68,12 +68,12 @@ resource "google_compute_instance" "etcd1" {
 
   boot_disk {
     initialize_params {
-      image = "fedora-coreos-cloud/fedora-coreos-stable"
+      image = "ubuntu-os-cloud/ubuntu-2004-lts"
     }
   }
 
   network_interface {
-    subnetwork = google_compute_subnetwork.mtl-backend.name
+    subnetwork = google_compute_subnetwork.prod-backend.name
 
   }
 }
@@ -86,12 +86,12 @@ resource "google_compute_instance" "etcd1" {
 
     boot_disk {
       initialize_params {
-        image = "fedora-coreos-cloud/fedora-coreos-stable"
+        image = "ubuntu-os-cloud/ubuntu-2004-lts"
       }
     }
 
     network_interface {
-      subnetwork = google_compute_subnetwork.mtl-backend.name
+      subnetwork = google_compute_subnetwork.prod-backend.name
     }
 }
 
@@ -103,12 +103,12 @@ resource "google_compute_instance" "etcd1" {
 
       boot_disk {
         initialize_params {
-          image = "fedora-coreos-cloud/fedora-coreos-stable"
+          image = "ubuntu-os-cloud/ubuntu-2004-lts"
         }
       }
 
       network_interface {
-        subnetwork = google_compute_subnetwork.mtl-backend.name
+        subnetwork = google_compute_subnetwork.prod-backend.name
 
       }
 }
@@ -123,13 +123,13 @@ resource "google_compute_instance_template" "cr460-worker-template" {
 
   // Create a new boot disk from an image
   disk {
-    source_image = "fedora-coreos-cloud/fedora-coreos-stable"
+    source_image = "ubuntu-os-cloud/ubuntu-2004-lts"
     auto_delete = true
     boot = true
   }
 
   network_interface {
-    subnetwork = google_compute_subnetwork.mtl-workload.name
+    subnetwork = google_compute_subnetwork.prod-workload.name
   }
 
 }
