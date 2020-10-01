@@ -171,5 +171,4 @@ resource "google_compute_autoscaler" "cr460-autoscaler" {
     cpu_utilization {
       target = 0.5
     }
-  }
-/*
+  }*/
