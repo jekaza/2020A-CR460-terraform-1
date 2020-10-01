@@ -94,6 +94,7 @@ resource "google_dns_record_set" "vault" {
   ttl  = 300
 
   managed_zone = "cloudlab"
-*/
+
   rrdatas = [google_compute_instance.vault.network_interface.0.access_config.0.nat_ip]
 }
+*/
